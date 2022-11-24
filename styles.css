@@ -1,0 +1,284 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Trebuchet MS;
+  background-color: greenyellow;
+  /* overflow: hidden; */
+}
+
+/* ==========
+   global style
+   ==========*/
+
+ul {
+  list-style-type: none;
+}
+
+.board {
+  display: grid;
+  height: 45vh;
+  width: 45vh;
+  margin-right: auto;
+  margin-left: auto;
+  background-image: url("img/board.svg");
+  border: 0.125rem solid black;
+  grid-template-rows: repeat(10, 1fr);
+  grid-template-columns: repeat(10, 1fr);
+}
+
+.gridBox {
+  border: 0.125rem solid black;
+}
+
+.drone {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.hide {
+  display: none;
+}
+
+.input-field {
+  display: inline-block;
+  margin-left: 0.9rem;
+  margin-top: 0.5rem;
+  padding: 0.2rem;
+  height: 2rem;
+  width: 50vw;
+  border: 0.125rem solid black;
+}
+
+.submit-button {
+  position: absolute;
+  right: 4.9rem;
+  bottom: 4.4rem;
+  padding: 0.45em;
+}
+
+/* ==========
+   FlexBox style
+   ==========*/
+
+.flexbox-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexbox-left {
+  width: 100%;
+}
+
+.flexbox-middle {
+  width: 100%;
+}
+
+.flexbox-right {
+  width: 100%;
+}
+
+/* ==========
+   GAME INFORMATION BLOCK
+   ==========*/
+
+.commandListText {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.commandList__header {
+  font-size: 2.25rem;
+  font-weight: 500;
+  color: black;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.commandList {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: black;
+}
+
+.outputDisplay {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.output__header {
+  width: 40%;
+  font-size: 2.25rem;
+  color: black;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+}
+
+.display_output {
+  height: 30vh;
+  width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  color: White;
+  background-color: black;
+}
+
+/* ==========
+   PROJECTILE
+   ==========*/
+
+.projectile {
+  display: none;
+  width: 4.5vh;
+  height: 4.5vh;
+}
+
+@media (min-width: 600px) {
+  .board {
+    display: grid;
+    height: 68vh;
+    width: 68vh;
+    margin-right: auto;
+    margin-left: auto;
+    background-image: url("img/board.svg");
+    border: 0.125rem solid black;
+    grid-template-rows: repeat(10, 1fr);
+    grid-template-columns: repeat(10, 1fr);
+  }
+
+  .gridBox {
+    border: 0.125rem solid black;
+  }
+
+  .input-field {
+    display: inline-block;
+    margin-left: 3.2em;
+    margin-top: 0.5rem;
+    padding: 0.2rem;
+    height: 2rem;
+    width: 29vw;
+    border: 0.125rem solid black;
+  }
+
+  .submit-button {
+    position: absolute;
+    right: 41.5rem;
+    bottom: 12.5rem;
+    padding: 0.45em;
+  }
+
+  /* ==========
+     FlexBox style
+     ==========*/
+
+  .flexbox-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .flexbox-left {
+    width: 20%;
+  }
+
+  .flexbox-middle {
+    width: 39%;
+  }
+
+  .flexbox-right {
+    width: 40%;
+  }
+
+  /* GAME INFORMATION BLOCK */
+  .commandListText {
+    margin-top: 4rem;
+    width: 20vw;
+    left: 5rem;
+  }
+
+  .commandList__header {
+    font-size: 2.25rem;
+    font-weight: 500;
+    color: black;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+
+  .commandList {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: black;
+  }
+
+  .outputDisplay {
+    width: 100%;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+
+  .output__header {
+    width: 19%;
+    font-size: 2.25rem;
+    color: black;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+  }
+
+  .display_output {
+    height: 30vh;
+    width: 35vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+    background-color: black;
+  }
+
+  .projectile {
+    display: none;
+    width: 6.5vh;
+    height: 6.5vh;
+  }
+
+  /* ==========
+     Button
+     ==========*/
+
+  .commandButton {
+    border: none;
+    outline: none;
+    padding: 0.5em 1em;
+    border-radius: 1em;
+    width: 9rem;
+    color: white;
+    background: black;
+    margin-bottom: 0.3rem;
+    box-shadow: 0 3px 20px 0 #0000003b;
+  }
+
+  .commandButton:hover {
+    background: #def2f1;
+    color: #333;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Assessment Toy Drone",
+  "version": "1.0.0",
+  "description": "",
+  "default": "index.html",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist --no-scope-hoist"
+  },
+  "author": "Clintin Herholdt",
+  "license": "ISC",
+  "dependencies": {
+    "@parcel/transformer-css": "^2.7.0",
+    "@parcel/transformer-js": "^2.7.0",
+    "parcel": "^2.7.0",
+    "parcel-reporter-static-files-copy": "^1.4.0"
+  },
+  "staticFiles": {
+    "staticPath": "img",
+    "staticOutPath": "img"
+  }
+}
