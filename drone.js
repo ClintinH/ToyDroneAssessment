@@ -1,4 +1,5 @@
 import { outputText } from "./script.js";
+import { replaceImg } from "./script.js";
 
 const maxColumns = 10;
 const maxRows = 10;
@@ -35,12 +36,10 @@ export default class Drone {
     if (this.incorrectPlace) return;
     this.board.innerHTML = "";
     let drone = document.createElement("img");
-    drone.src = `img/drone${this.facing}.svg`;
+    replaceImg(drone, `img/drone${this.facing}.png`);
 
     drone.style.gridRowStart = yMap.get(Number(this.y));
-    // drone.style.gridRowStart = this.y;
     drone.style.gridColumnStart = xMap.get(Number(this.x));
-    // drone.style.gridColumnStart = this.x;
     drone.classList.add("drone");
     this.board.appendChild(drone);
   }

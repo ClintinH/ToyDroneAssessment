@@ -13,20 +13,8 @@ const drone = new Drone(board);
 const projectile = new Projectile(board);
 
 let commandInput = true;
-let lastTime = null;
 
-function gameLoop(time) {
-  // Prevents first delta to have huge number
-  if (lastTime != null) {
-    let delta = time - lastTime;
-    drone.draw();
-    projectile.draw();
-  }
-
-  lastTime = time;
-  requestAnimationFrame(gameLoop);
-}
-
+// setting the command list and buttonstyles
 commandList.innerHTML = `
     <h5 class="commandList__header">Commands</h5>
         <ul class="commandList">
@@ -60,7 +48,6 @@ function notPlaced(input) {
   // check if placed command was entered
   if (input === "PLACE") {
     commandInput = false;
-    gameLoop();
   }
 }
 
@@ -112,6 +99,8 @@ function commandListRun(command, options) {
         outputText(`${command} ${drone.x},${drone.y},${drone.facing}`);
         break;
     }
+    drone.draw();
+    projectile.draw();
   }
 }
 
@@ -122,9 +111,65 @@ commandListLinks.addEventListener("click", function (e) {
   if (element.classList[0] === "commandButton") {
     const command = element.innerText.toUpperCase();
     if (command === "PLACE") {
-      commandListRun(command, "0,0,NORTH");
+      commandListRun(command, "5,5,NORTH");
     } else {
       commandListRun(command);
     }
   }
 });
+
+let images = [
+  "droneEAST.png",
+  "droneNORTH.png",
+  "droneSOUTH.png",
+  "droneWEST.png",
+  "explosionEAST.png",
+  "explosionNORTH.png",
+  "explosionSOUTH.png",
+  "explosionWEST.png",
+  "projectileEAST.png",
+  "projectileNORTH.png",
+  "projectileSOUTH.png",
+  "projectileWEST.png",
+];
+
+///loader
+let bar_percentage = document.getElementById("bar_percentage");
+let percentage_number = document.getElementById("percentage_number");
+let loaderOverlay = document.getElementById("loaderOverlay");
+
+let img_queue = new createjs.LoadQueue();
+let completedProgress = 0;
+img_queue.addEventListener("progress", (event) => {
+  let progress_percentage = Math.floor(event.progress * 100);
+  bar_percentage.style.width = progress_percentage + "%";
+  percentage_number.innerHTML = progress_percentage + "%";
+  console.log("progress " + Math.floor(event.progress * 100));
+  if (progress_percentage === 100) preloaderComplete();
+});
+
+images.forEach((element) => {
+  img_queue.loadFile(`img/${element}`);
+});
+
+function preloaderComplete() {
+  loaderOverlay.remove();
+}
+
+let loadedImages = new Map();
+
+img_queue.addEventListener("fileload", (e) => {
+  addImg(e.item.id, e.loader._rawResult);
+});
+
+export function replaceImg(element, id) {
+  let urlCreator = window.URL || window.webkitURL;
+  let imageUrl = urlCreator.createObjectURL(loadedImages.get(id));
+  element.src = imageUrl;
+}
+
+function addImg(id, loadedImg) {
+  if (!loadedImages.has(id)) {
+    loadedImages.set(id, loadedImg);
+  }
+}

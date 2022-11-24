@@ -1,4 +1,5 @@
-const velocity = 0.00000025;
+import { replaceImg } from "./script.js";
+
 const maxColumns = 10;
 const maxRows = 10;
 
@@ -31,45 +32,24 @@ export default class Projectile {
     this.explosion = false;
   }
 
-  // get x() {
-  //   return parseFloat(
-  //     getComputedStyle(this.projectileElem).getPropertyValue("--x")
-  //   );
-  // }
-
-  // set x(value) {
-  //   return this.projectileElem.style.setProperty("--x", value);
-  // }
-
-  // get y() {
-  //   return parseFloat(
-  //     getComputedStyle(this.projectileElem).getPropertyValue("--y")
-  //   );
-  // }
-
-  // set y(value) {
-  //   return this.projectileElem.style.setProperty("--y", value);
-  // }
-
   draw() {
     if (!this.explosion)
-      this.projectileElem.src = `img/projectile${this.facing}.svg`;
+      replaceImg(this.projectileElem, `img/projectile${this.facing}.png`);
 
     this.projectileElem.style.gridRowStart = yMap.get(Number(this.y));
     this.projectileElem.style.gridColumnStart = xMap.get(Number(this.x));
     this.projectileElem.classList.add("projectile");
     this.board.appendChild(this.projectileElem);
-
-    // this.x += this.direction.x * this.velocity * delta;
-    // this.y += this.y * velocity * delta;
   }
 
   update(options) {
     this.x = options.x == null ? this.x : Number(options.x);
     this.y = options.y == null ? this.y : Number(options.y);
     this.facing = options.facing == null ? this.facing : options.facing;
+    this.draw();
   }
 
+  // This is not ideal - should rather use promises
   shoot(pos1, pos2) {
     this.projectileElem.style.display = "block";
     setTimeout(() => {
@@ -78,8 +58,7 @@ export default class Projectile {
         this.update(pos2);
         setTimeout(() => {
           this.explosion = true;
-          this.projectileElem.src = `img/explosion${this.facing}.svg`;
-          // this.projectileElem.style.display = "none";
+          replaceImg(this.projectileElem, `img/explosion${this.facing}.png`);
           setTimeout(() => {
             this.explosion = false;
             this.projectileElem.style.display = "none";
@@ -93,35 +72,15 @@ export default class Projectile {
   attack() {
     switch (this.facing) {
       case "NORTH":
-        // this.projectileElem.style.display = "block";
-        // this.update({ y: this.y + 2 });
-        // setTimeout(() => {
-        //   this.projectileElem.style.display = "none";
-        // }, "1000");
         this.shoot({ y: this.y + 1 }, { y: this.y + 2 });
         break;
       case "SOUTH":
-        // this.projectileElem.style.display = "block";
-        // this.update({ y: this.y - 2 });
-        // setTimeout(() => {
-        //   this.projectileElem.style.display = "none";
-        // }, "1000");
         this.shoot({ y: this.y - 1 }, { y: this.y - 2 });
         break;
       case "WEST":
-        // this.projectileElem.style.display = "block";
-        // this.update({ x: this.x + 2 });
-        // setTimeout(() => {
-        //   this.projectileElem.style.display = "none";
-        // }, "1000");
         this.shoot({ x: this.x - 1 }, { x: this.x - 2 });
         break;
       case "EAST":
-        // this.projectileElem.style.display = "block";
-        // this.update({ x: this.x - 2 });
-        // setTimeout(() => {
-        //   this.projectileElem.style.display = "none";
-        // }, "1000");
         this.shoot({ x: this.x + 1 }, { x: this.x + 2 });
         break;
     }

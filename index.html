@@ -4,11 +4,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.createjs.com/1.0.0/preloadjs.min.js"></script>
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" type="module"></script>
     <title>ToyDrone</title>
   </head>
   <body>
+    <div id="loaderOverlay">
+      <div id="progress_bar">
+        <div id="bar_percentage"></div>
+        <!-- Pecentage progress in numbers -->
+        <div id="percentage_number"></div>
+      </div>
+    </div>
     <div class="flexbox-container">
       <div class="flexbox-left">
         <div class="commandListText"></div>
