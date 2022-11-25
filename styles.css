@@ -17,7 +17,14 @@ body {
    ==========*/
 
 ul {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   list-style-type: none;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
 }
 
 .board {
@@ -58,8 +65,8 @@ ul {
 
 .submit-button {
   position: absolute;
-  right: 4.9rem;
-  bottom: 4.4rem;
+  right: 4.6rem;
+  bottom: 7.5rem;
   padding: 0.45em;
 }
 
@@ -91,22 +98,24 @@ ul {
    ==========*/
 
 .commandListText {
-  width: 60%;
   margin-left: auto;
   margin-right: auto;
   position: relative;
 }
 
 .commandList__header {
-  font-size: 2.25rem;
+  font-size: 2rem;
   font-weight: 500;
   color: black;
   font-weight: bold;
+  width: 50%;
   margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .commandList {
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-bottom: 1rem;
   color: black;
 }
@@ -158,8 +167,9 @@ ul {
   outline: none;
   padding: 0.5em 1em;
   border-radius: 1em;
-  width: 9rem;
+  width: 5rem;
   color: white;
+  margin: 0.1rem;
   background: black;
   margin-bottom: 0.3rem;
   box-shadow: 0 3px 20px 0 #0000003b;
@@ -190,7 +200,7 @@ ul {
 
   .input-field {
     display: inline-block;
-    margin-left: 3.2em;
+    margin-left: 2.3em;
     margin-top: 0.5rem;
     padding: 0.2rem;
     height: 2rem;
@@ -200,7 +210,7 @@ ul {
 
   .submit-button {
     position: absolute;
-    right: 41.5rem;
+    right: 39rem;
     bottom: 12.5rem;
     padding: 0.45em;
   }
@@ -217,7 +227,7 @@ ul {
   }
 
   .flexbox-left {
-    width: 20%;
+    width: 25%;
   }
 
   .flexbox-middle {
@@ -231,8 +241,6 @@ ul {
   /* GAME INFORMATION BLOCK */
   .commandListText {
     margin-top: 4rem;
-    width: 20vw;
-    left: 5rem;
   }
 
   .commandList__header {

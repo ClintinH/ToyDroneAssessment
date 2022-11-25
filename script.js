@@ -104,7 +104,7 @@ function commandListRun(command, options) {
   }
 }
 
-commandListLinks.addEventListener("click", function (e) {
+const buttonEvent = function (e) {
   const element = e.target.closest("li");
   if (element === null) return;
 
@@ -116,7 +116,10 @@ commandListLinks.addEventListener("click", function (e) {
       commandListRun(command);
     }
   }
-});
+};
+
+commandListLinks.addEventListener("click", buttonEvent);
+commandListLinks.addEventListener("touch", buttonEvent);
 
 let images = [
   "droneEAST.png",
