@@ -4,7 +4,7 @@ This is a Assessment project for Games Global
 
 ### Setup
 
-Minumum reuquirement:
+Minumum requirement:
 
 1. node js install
 
@@ -24,6 +24,11 @@ Then, to build the source, run:
 #### npm run start
 
 After running localhost would start automatically
-[Local host](http://localhost:51375)
+[Local host](http://localhost:1234)
+
+example http://localhost:51375
 
 #### npm run build
+
+Design Sample Idea Planning
+![design](https://pixijs.download/pixijs-banner-no-version.png)
