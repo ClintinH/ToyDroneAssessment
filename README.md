@@ -11,7 +11,7 @@ Minumum requirement:
 ### How to build
 
 Note that for most users you don't need to build this project.
-If all you want is to view open up the index.html or
+You will have to run the npm run start command to start a local host to view the project or
 Please refer to the [Live Version](https://clintin-toydrone-assessment.netlify.app/) for more information.
 
 If you don't already have Node.js and NPM, go install them. Then, in the folder where you have cloned
