@@ -31,4 +31,4 @@ example http://localhost:51375
 #### npm run build
 
 Design Sample Idea Planning
-![design](https://pixijs.download/pixijs-banner-no-version.png)
+![design](https://github.com/ClintinH/ToyDroneAssessment/blob/main/resources/planning%20file%20middle%20view.pdf)
